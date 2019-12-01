@@ -41,7 +41,7 @@ options:
         default: "present"
         choices: [ present, absent ]
         description:
-            - Whether the rule shoudl exist or not
+            - Whether the rule should exist or not
     user:
         required: false
         description:
