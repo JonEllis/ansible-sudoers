@@ -11,7 +11,7 @@ It does not currently support aliases, but it is probably not too difficult to a
 
 ## Examples
 
-###### Allow the `backup` user to run `sudo /usr/local/bin/backup` without requiring a password
+##### Allow the `backup` user to run `sudo /usr/local/bin/backup` without requiring a password
 
 ```
 - sudoers:
@@ -26,7 +26,7 @@ This will create a file `/etc/sudoers.d/allow-backup` containing:
 backup ALL=NOPASSWD: /usr/local/bin/backup\n`
 ```
 
-###### Allow the `monitoring` group to run `sudo /usr/local/bin/gather-app-metrics` without requiring a password
+##### Allow the `monitoring` group to run `sudo /usr/local/bin/gather-app-metrics` without requiring a password
 
 ```
 - sudoers:
@@ -41,7 +41,7 @@ This will create a file `/etc/sudoers.d/monitor-app` containing:
 %monitoring ALL=NOPASSWD: /usr/local/bin/gather-app-metrics\n`
 ```
 
-###### Allow `alice` to run `sudo /bin/systemctl restart my-service` or `sudo /bin/systemctl reload my-service`, but a password is required
+##### Allow `alice` to run `sudo /bin/systemctl restart my-service` or `sudo /bin/systemctl reload my-service`, but a password is required
 
 ```
 - sudoers:
@@ -59,7 +59,7 @@ This will create a file `/etc/sudoers.d/alice-service` containing:
 alice ALL=: /bin/systemctl restart my-service, /bin/systemctl reload my-service\n`
 ```
 
-###### Revoke the previous sudo grants given to `alice`
+##### Revoke the previous sudo grants given to `alice`
 
 ```
 - sudoers:
