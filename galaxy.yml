@@ -1,8 +1,8 @@
 namespace: JonEllis
 name: sudoers
+
 authors:
   - Jon Ellis <ellis.jp@gmail.com> (https://www.jon-ellis.co.uk)
-
 
 version: 0.1.0
 dependencies: {}
@@ -10,6 +10,8 @@ dependencies: {}
 description: A Sudoers module to facilitate adding config to the /etc/sudoers.d/ directory.
 tags:
   - sudoers
+
+readme: README.md
 
 license: AGPL-3.0-only
 license_file: LICENSE.md
