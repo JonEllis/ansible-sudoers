@@ -4,11 +4,15 @@
 # Copyright: (c) 2019, Jon Ellis <ellis.jp@gmail.com>
 
 from __future__ import absolute_import, division, print_function
+from ansible.module_utils.basic import *
+import os
+
 __metaclass__ = type
 
-ANSIBLE_METADATA = {'metadata_version': '2.8',
-                    'status': ['unstableinterface'],
-                    'supported_by': 'no-one'}
+ANSIBLE_METADATA = {
+    'metadata_version': '2.9',
+    'status': ['unstableinterface']
+}
 
 DOCUMENTATION = '''
 ---
@@ -26,7 +30,8 @@ options:
     group:
         required: false
         description:
-            - Name of the group for the sudoers rule (cannot be used in conjunction with user)
+            - Name of the group for the sudoers rule
+              (cannot be used in conjunction with user)
     name:
         required: true
         description:
@@ -45,7 +50,8 @@ options:
     user:
         required: false
         description:
-            - Name of the user for the sudoers rule (cannot be used in conjunction with group)
+            - Name of the user for the sudoers rule
+              (cannot be used in conjunction with group)
 '''
 
 EXAMPLES = '''
@@ -57,9 +63,10 @@ EXAMPLES = '''
     command: /usr/local/bin/backup
 '''
 
-class Sudoers (object) :
 
-    def __init__ (self, module) :
+class Sudoers (object):
+
+    def __init__(self, module):
         self.module = module
         self.name = module.params['name']
         self.user = module.params.get('user')
@@ -112,9 +119,9 @@ class Sudoers (object) :
             else:
                 changed = False
         except Exception as e:
-            self.module.fail_json (msg = str(e))
+            self.module.fail_json(msg=str(e))
 
-        self.module.exit_json (changed = changed)
+        self.module.exit_json(changed=changed)
 
     def run(self):
         changed = False
@@ -135,13 +142,13 @@ class Sudoers (object) :
             else:
                 changed = False
 
-        except Exception as e :
-            self.module.fail_json (msg = str (e))
+        except Exception as e:
+            self.module.fail_json(msg=str(e))
 
-        self.module.exit_json (changed = changed)
+        self.module.exit_json(changed=changed)
 
 
-def main ():
+def main():
 
     argument_spec = {
         'command': {
@@ -161,7 +168,7 @@ def main ():
     }
     mutually_exclusive = [['user', 'group']]
 
-    module = AnsibleModule (
+    module = AnsibleModule(
         argument_spec=argument_spec,
         mutually_exclusive=mutually_exclusive,
         supports_check_mode=True,
@@ -174,5 +181,5 @@ def main ():
     else:
         sudoers.run()
 
-from ansible.module_utils.basic import *
+
 main()
