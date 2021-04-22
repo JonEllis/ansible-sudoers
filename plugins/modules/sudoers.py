@@ -72,7 +72,7 @@ class Sudoers (object):
         self.user = module.params.get('user')
         self.group = module.params.get('group')
         self.state = module.params['state']
-        self.nopassword = bool(module.params.get('nopassword', True))
+        self.nopassword = module.params.get('nopassword') == 'True'
         self.file = '/etc/sudoers.d/{}'.format(self.name)
 
         command = module.params['command']
@@ -102,7 +102,7 @@ class Sudoers (object):
             owner = '%{}'.format(self.group)
 
         command_str = ', '.join(self.commands)
-        nopasswd_str = 'NOPASSWD' if self.nopassword else ''
+        nopasswd_str = 'NOPASSWD' if self.nopassword else 'PASSWD'
         return "{} ALL={}: {}\n".format(owner, nopasswd_str, command_str)
 
     def check(self):
@@ -159,6 +159,10 @@ def main():
         'group': {},
         'name': {
             'required': True
+        },
+        'nopassword': {
+            'required': False,
+            'default': True,
         },
         'state': {
             'default': 'present',

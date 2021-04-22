@@ -4,7 +4,7 @@ name: sudoers
 authors:
   - Jon Ellis <ellis.jp@gmail.com> (https://www.jon-ellis.co.uk)
 
-version: 0.1.5
+version: 0.1.6
 dependencies: {}
 
 description: A Sudoers module to facilitate adding config to the /etc/sudoers.d/ directory.
