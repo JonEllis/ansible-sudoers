@@ -13,7 +13,6 @@ tags:
 
 readme: README.md
 
-license: AGPL-3.0-only
 license_file: LICENSE.md
 
 repository: https://github.com/JonEllis/ansible-sudoers/
