@@ -1,5 +1,15 @@
 # Ansible Sudoers Module
 
+## Inclusion in the community.general collection
+
+**This module has been included in the [community.general](https://github.com/ansible-collections/community.general) collection, and is actively maintained there.**
+
+**See the docs for using the [community.general.sudoers](https://docs.ansible.com/ansible/latest/collections/community/general/sudoers_module.html) module.**
+
+---
+
+## Module info
+
 This is a basic Ansible module to facilitate adding Sudoers config to the /etc/sudoers.d/ directory.
 While does manage to distribute the sudoers library directory, Ansible galaxy does not seem to show any content.
 I assume you're supposed share more than supporting libraries...
